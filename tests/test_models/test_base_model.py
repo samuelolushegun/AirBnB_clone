@@ -34,6 +34,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn(self.bmodel_inst.id, str_repr)
         self.assertIn(str(self.bmodel_inst.__dict__), str_repr)
 
+    def test_kwargs_constructor(self):
+        '''Method to test kwargs'''
+        new_inst_dict = self.bmodel_inst.to_dict()
+        new_inst = BaseModel(**new_inst_dict)
+        self.assertEqual(new_inst.id, self.bmodel_inst.id)
 
 if __name__ == '__main__':
     unittest.main()
